@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Workspace File Manager",
+    "description": "Manage the current session's workspace files from the right sidebar: upload, rename, move, copy, and delete."
+  }
+}

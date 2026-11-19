@@ -1,0 +1,49 @@
+{
+  "name": "@dsh-custom/dsh-file-manager",
+  "version": "0.1.1",
+  "private": true,
+  "description": "Workspace file manager in the right sidebar: upload, rename, move, copy, and delete files in the current session's workspace.",
+  "type": "module",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml"
+  },
+  "files": [
+    "index.js",
+    "lib/**/*.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-modules",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-renderer",
+        "@deepseek-ai/dsh-client-ui-sidebar-right",
+        "@deepseek-ai/dsh-client-ui-session"
+      ]
+    }
+  },
+  "scripts": {
+    "check": "node --check index.js && node --check lib/errors.js && node --check lib/paths.js && node --check lib/session-root.js && node --check lib/mime.js && node --check lib/image.js && node --check lib/ops.js && node --check lib/routes.js && node --check client.js && node --test"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "react": "^18.3.1",
+    "react-test-renderer": "^18.3.1"
+  }
+}
